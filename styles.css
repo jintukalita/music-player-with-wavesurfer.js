@@ -1,0 +1,149 @@
+/* styles.css */
+body {
+    font-family: 'Inter', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #2e2e2e;
+    color: white;
+}
+
+.audio-player-container {
+    position: relative;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    width: 350px;
+    height: 450px;
+    text-align: center;
+    background-size: cover;
+    align-content: flex-end;
+    background-position: center;
+    overflow: hidden;
+}
+
+.album-art {
+    background-image: url("https://ik.imagekit.io/n1cw2npd4/artworks-t2UXQREdYxbP-0-t500x500.jpg?updatedAt=1727534685886");
+    background-size: cover;
+    background-position: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    filter: brightness(0.6);
+    /* Optional: darken the background to improve text readability */
+    z-index: -1;
+    /* Ensure it stays behind the content */
+}
+
+.album-art::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    /* Full height for gradient over album art */
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
+    /* Gradient only on album art */
+    z-index: 1;
+    /* Above the album art but below other content */
+    pointer-events: none;
+    /* Allow interactions with controls */
+}
+
+.audio-player-container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.6), transparent);
+    /* Gradient from bottom to top */
+    z-index: -1;
+}
+
+/* Track Info */
+.audio-info {
+    margin-bottom: 10px;
+    z-index: 2;
+    /* Ensure track info is above the album art gradient */
+}
+
+.track-title {
+    font-size: 22px;
+    font-weight: 600;
+    display: block;
+    margin-bottom: 5px;
+    color: #fff;
+}
+
+.artist-name {
+    font-size: 16px;
+    color: gray;
+    font-weight: 400;
+}
+
+/* Waveform */
+#waveform {
+    margin: 10px 0;
+    margin-top: 30px;
+    margin-bottom: 12px;
+    height: 30px;
+}
+
+/* Time Info */
+.time-info {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+/* Volume Control */
+.volume-control {
+    margin-bottom: 15px;
+}
+
+.volume-control label {
+    font-size: 14px;
+    margin-right: 10px;
+}
+
+.volume-control input[type=range] {
+    width: 100px;
+}
+
+/* Audio Controls */
+.audio-controls {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    z-index: 2;
+    /* Ensure controls are above the bottom gradient */
+}
+
+.control-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.control-btn svg {
+    width: 32px;
+    height: 32px;
+    color: #ffffff;
+}
+
+.play-btn svg {
+    width: 50px;
+    height: 50px;
+}
+
+.control-btn svg:hover {
+    color: #f5f5f5;
+}
